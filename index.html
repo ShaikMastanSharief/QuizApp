@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Start Screen -->
+    <div id="startScreen" class="card">
+      <h2>Select Quiz Category</h2>
+      <select id="categorySelect">
+        <option value="All">All</option>
+        <option value="Geography">Geography</option>
+        <option value="Science">Science</option>
+        <option value="Technology">Technology</option>
+      </select>
+      <button onclick="beginQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- Quiz Container -->
+    <div id="quizContainer" class="card" style="display: none;">
+      <div class="header">
+        <span>Question <span id="questionNumber"></span> of <span id="totalQuestions"></span></span>
+        <span>⏱ <span id="timer">30</span>s</span>
+      </div>
+      <h2 id="questionText"></h2>
+      <div id="choices">
+        <button class="choiceButton"></button>
+        <button class="choiceButton"></button>
+        <button class="choiceButton"></button>
+        <button class="choiceButton"></button>
+      </div>
+      <p id="feedbackText" class="feedback"></p>
+      <button id="nextButton" onclick="nextQuestion()">Next</button>
+    </div>
+
+    <!-- Review Container -->
+    <div id="reviewContainer" class="card" style="display: none;">
+      <h2 class="review-heading">✅ RESULT: You Now Have...</h2>
+      <p class="score" id="highScore"></p>
+      <ul class="review-list" id="reviewList"></ul>
+      <div class="review-options">
+        <button onclick="enableReviewMode()">🔍 Enter Review Mode</button>
+        <button onclick="restartQuiz()">🔄 Restart Quiz</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio for Sound Effects -->
+  <audio id="soundCorrect" src="sounds/correct.mp3"></audio>
+  <audio id="soundWrong" src="sounds/wrong.mp3"></audio>
+  <audio id="soundClick" src="sounds/click.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
